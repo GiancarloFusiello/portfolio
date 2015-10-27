@@ -1,0 +1,51 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Giancarlo Fusiello">
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Giancarlo Fusiello personal portfolio website. This site is built using Python Django and demonstrates the use of AJAX, RESTful APIs, Data Analysis and Machine Learning."/>
+
+
+    <!-- PAGE TITLE -->
+    <title>{% block title %}Giancarlo Fusiello | Python Developer{% endblock %}</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    {% block stylesheet %}{% endblock %}
+
+
+</head>
+
+<body>
+    <!-- NAV BAR -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <nav id="port-nav">
+                    <ul>
+                        <li class="home"><a href="#">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- /NAV BAR -->
+
+    <!-- CONTENT -->
+    {% block content %}
+    {% endblock %}
+    <!-- /CONTENT -->
+
+    <!-- SCRIPTS -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    {% block script %}{% endblock %}
+
+</body>
+</html>
