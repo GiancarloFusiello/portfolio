@@ -1,5 +1,127 @@
+/**********
+General - Font Smoothing
+***********/
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple, a, .td-name, td {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Helvetica Neue","Open Sans",Arial,sans-serif;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+    font-weight: 400;
+    margin: 30px 0 15px;
+}
+
+h1, .h1 {
+    font-size: 52px;
+}
+
+h2, .h2 {
+    font-size: 36px;
+}
+
+h3, .h3 {
+    font-size: 28px;
+    margin: 20px 0 10px;
+}
+
+h4, .h4 {
+    font-size: 22px;
+    line-height: 30px;
+}
+
+h5, .h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+h6, .h6 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+p {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    line-height: 28px;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.header-text{
+    text-transform: uppercase;
+    font-weight: 200;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 30px;
+    position: relative;
+    line-height: 24px;
+}
+
+.add-padding {
+    padding: 50px 5px;
+}
+
+.white-text {
+    color: #fff;
+}
+
+/********
+Home Intro/Title Section
+*********/
+
 .text-intro {
     font-family: 'Product Sans', Arial, sans-serif;
     color: #FFFFFF;
     text-align: center;
 }
+
+.img-src {
+    background-color: #0e1215;
+    background-image: url('https://s3.amazonaws.com/creativetim_bucket/get_shit_done/img/bg.jpg');
+    z-index: -1;
+}
+
+.img-src div h1:first-child {
+    padding-top: 30%;
+}
+
+.text-yellow {
+    color: #f1c40f;
+}
+
+.text-blue {
+    color: #3776ab;
+}
+
+#py-logo {
+    display: block;
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 48px;
+    height: auto;
+}
+
+
+/********
+Home About Section
+*********/
+
+.section-ajax {
+    background-color: #1D62F0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+
+
+/********
+Home Footer Section
+*********/
+
+.section-footer {
+    background-color: #dcdcdc;
+}
+

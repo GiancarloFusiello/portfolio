@@ -4,27 +4,55 @@
 {% block content %}
     <div class="main">
         <div class="container">
+            <div class="row add-padding">
+                <div class="col-md-6">
+                    <h4 class="header-text text-left">About</h4>
 
-            <div class="row intro">
-                <h1 class="text-center">Welcome!</h1>
-                <p class="lead text-center">This is some test text.</p>
-                <div class="col-md-4 col-md-offset-4">
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p><b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <p>
+                        For the last seven years, I have worked in the IT industry, from providing support for users to infrastructure in universities to financial trading floors. I have been exposed to a lot of technology during my experience and find myself constantly learning new technology, which is one of the aspects I enjoy working in IT.</p>
+
+                    <p>
+                        In early 2014, I decided to train to become a software engineer - something that I have always wanted to do but didn't have the confidence to take up, as I was under the impression that you needed to be a rocket scientist or something of that regard.
+                    </p>
+
+                    <p>
+                        I started with learning Java - learning the basic principles of programming and Object Oriented Programming. I was particularly fond of creating Apps for Android as the tools are free and Google provide a lot of documentation. Once I become confident with programming, I started to learn frontend web technologies such as HTML5, CSS3 and Javascript. This is when I discovered Python and the Django framework. Since discovering Python, I have to say, I'm a huge fan and find myself researching what else I can use Python for.
+                    </p>
+                    <p>
+                    More recently, I have completed many courses from Codecademy.com, Treehouse.com, CodingForEntrepreneurs.com and  Dataquest.io, as well as many Django tutorials such as Django Polls and DjangoGirls. In these courses I have progressed with learning Python and have also become familiar with Django, jQuery, Bootstrap, Git, SQL, AJAX, REST APIs, libraries such as Requests, NumPy, Pandas, scripting using Bash, Bat and PowerShell and with using Windows CMD, Mac OS X and linux terminals.
+                    </p>
+
+                    <p>
+                        I have a dream where, one day, I was part of something truly amazing and that I was able to contribute to it.
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-md-offset-1">
+                    <h4 class="header-text text-left">Contact</h4>
+
+                    <p>Phone: 0989843433</p>
+                    <p>Email: somememail@domain.com</p>
+                    <p>Twitter: @twitteraccount
+
 
                 </div>
             </div>
-
         </div><!-- /CONTAINER -->
-    </div>
+    </div><!-- /MAIN -->
+
+    <section class="section section-ajax white-text" style="background-image: url('{% static "img/md-blue.jpg" %}')">
+        <div class="container">
+            <div class="row add-padding">
+                <div class="col-md-6 col-md-offset-3">
+                    <h4 class="header-text white-text">Ajax</h4>
+                    <p>Here is an example where we use AJAX to modify some stuff and then you can see some results</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
 
 
 {% endblock %}
