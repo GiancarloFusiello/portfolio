@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <!-- META TAGS -->
     <meta charset="UTF-8">
@@ -17,14 +17,32 @@
     <!-- PAGE TITLE -->
     <title>{% block title %}Giancarlo Fusiello | Python Developer{% endblock %}</title>
 
+
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <link href="{% static 'css/get_shit_done.css' %}" rel="stylesheet">
-    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Product+Sans' rel='stylesheet' type='text/css'>
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-    {% block stylesheet %}{% endblock %}
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+        <!-- Get Sh*t Done -->
+        <link href="{% static 'css/get_shit_done.css' %}" rel="stylesheet">
+
+        <!-- Animate.css -->
+        <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+
+        <!-- Google Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Product+Sans' rel='stylesheet' type='text/css'>
+
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+        <!-- Site CSS -->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+        <!-- Page Specific CSS -->
+        {% block stylesheet %}{% endblock %}
+
+    <!-- /STYLESHEETS -->
 
 
 </head>
@@ -55,7 +73,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Skill Demos<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">AJAX</a></li>
+                                    <li><a href="#ajax">AJAX</a></li>
                                     <li><a href="#">REST API</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#">Data Analysis</a></li>
@@ -119,15 +137,30 @@
     </section>
     <!-- /FOOTER ->
 
+
     <!-- SCRIPTS -->
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="{% static 'js/get_shit_done.js' %}"></script>
-    <script src="http://malsup.github.com/jquery.cycle2.js"></script>
-    <script src="http://malsup.github.io/jquery.cycle2.center.js"></script>
-    <script src="{% static 'js/scripts.js' %}"></script>
-    {% block script %}{% endblock %}
+
+        <!-- Jquery CDN -->
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+        <!-- Bootstrap CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+        <!-- Get Sh*t Done -->
+        <script src="{% static 'js/get_shit_done.js' %}"></script>
+
+        <!-- Cycle2 CDN -->
+        <script src="http://malsup.github.com/jquery.cycle2.js"></script>
+        <script src="http://malsup.github.io/jquery.cycle2.center.js"></script>
+
+        <!-- Site JS -->
+        <script src="{% static 'js/scripts.js' %}"></script>
+
+        <!-- Page Specific JS -->
+        {% block script %}{% endblock %}
+
+    <!-- /SCRIPTS -->
 
 </body>
 </html>

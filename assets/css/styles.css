@@ -59,13 +59,24 @@ p {
     line-height: 24px;
 }
 
-.add-padding {
-    padding: 50px 5px;
+.title-padding {
+    padding-top: 50px;
+}
+
+.section-padding {
+    padding: 0 5px 50px;
 }
 
 .white-text {
     color: #fff;
 }
+
+.remove-decoration {
+    text-decoration: none !important;
+    color: #333;
+}
+
+
 
 /********
 Home Intro/Title Section
@@ -115,6 +126,35 @@ Home About Section
     z-index: 10;
 }
 
+#twitter-icon {
+    color: #00aced;
+}
+
+#google-icon {
+    color: #dd4b39;
+}
+
+#email-icon {
+    color: #dd4b39;
+}
+
+.contact {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 7px;
+}
+
+.contact i {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 20px;
+}
+
+.contact p {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
 
 
 /********
