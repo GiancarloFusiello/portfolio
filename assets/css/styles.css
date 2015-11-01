@@ -169,12 +169,23 @@ Home AJAX Section
 
 
 .section-ajax {
-    background-color: #3A539B;
+    background-color: #001d33;
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 10;
 }
 
+.section-ajax p {
+    font-weight: 400;
+}
+
+#ajax {
+    font-weight: 400;
+}
+
+#ajax-btn {
+    border-bottom: 0 none;
+}
 
 
 
