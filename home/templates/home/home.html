@@ -53,9 +53,22 @@
         <div class="container">
             <div class="row section-padding ">
                 <div class="col-md-10 col-md-offset-1">
-                    <h4 class="header-text title-padding white-text" id="ajax">Ajax</h4>
-                    <p>Here is an example where we use AJAX to modify some stuff and then you can see some results</p>
+                    <h4 class="header-text text-center title-padding white-text large-title" id="ajax">Ajax</h4>
+
+                    <p class="text-center">Here is an example of how AJAX can be used to retrieve some data from a server. The data retrieved can then be processed and displayed onscreen.</p>
+
+                    <p class="text-center">In this example, by entering some text and then pressing the button, this will initiate an AJAX request to Twitter.com and find tweets relating to the search parameters you entered. If Twitter.com responds with successful search results, the search box and button will be replaced by the resulting tweets otherwise an error will be shown.</p>
+
                 </div>
+
+                <div class="col-md-6 col-md-offset-3 title-padding">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search Twitter for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-fill" type="button">Go!</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
             </div>
         </div>
     </section>

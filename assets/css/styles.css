@@ -1,6 +1,7 @@
 /**********
 General - Font Smoothing
 ***********/
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple, a, .td-name, td {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -71,6 +72,10 @@ p {
     color: #fff;
 }
 
+.large-title {
+    font-size: 3em;
+}
+
 .remove-decoration {
     text-decoration: none !important;
     color: #333;
@@ -119,12 +124,6 @@ Home Intro/Title Section
 Home About Section
 *********/
 
-.section-ajax {
-    background-color: #1D62F0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 10;
-}
 
 #twitter-icon {
     color: #00aced;
@@ -155,6 +154,28 @@ Home About Section
     margin: 0;
     padding: 0;
 }
+
+.contact p a {
+    font-family: 'Product Sans', Arial, sans-serif;
+    font-weight: 200;
+}
+
+
+
+/********
+Home AJAX Section
+*********/
+
+
+
+.section-ajax {
+    background-color: #3A539B;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+
 
 
 /********
