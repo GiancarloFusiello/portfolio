@@ -1,6 +1,49 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block script %}
+    <script>
+        /*********
+        *  Ajax Section
+        *********/
+        $(document).ready(function(){
+
+            var wrapper = $('.ajax-wrapper');
+            var replacementWrapper = $('.ajax-replacement-wrapper');
+            var getFeed = true;
+            var url = "";
+
+
+            $('.ajax-btn').click(function () {
+                wrapper.toggle();
+                replacementWrapper.toggle();
+
+                if(getFeed === true){
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        success: function(response) {
+
+                            console.log(response);
+
+                            getFeed = false;
+
+                    },
+                    error: function(error, response) {
+                        console.log("Error message: " + error);
+                        console.log(response);
+                        getFeed = false;
+                    }
+                });
+                } else {
+                    getFeed = true;
+                }
+            })
+        });
+
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="main">
         <div class="container">
@@ -49,26 +92,70 @@
     </div><!-- /MAIN -->
 
     <!-- AJAX SECTION -->
-    <section class="section section-ajax white-text" style="background-image: url('{% static "img/md-blue.jpg" %}')">
+    <section class="section section-ajax white-text" style="background-image: url('{% static "img/grey-background.jpg" %}')">
         <div class="container">
-            <div class="row section-padding ">
+            <div class="row section-padding">
                 <div class="col-md-10 col-md-offset-1">
-                    <h4 class="header-text text-center title-padding white-text large-title" id="ajax">Ajax</h4>
 
-                    <p class="text-center">Here is an example of how AJAX can be used to retrieve some data from a server. The data retrieved can then be processed and displayed onscreen.</p>
+                    <h4 class="header-text title-padding white-text large-title" id="ajax-title">REST API & Ajax</h4>
 
-                    <p class="text-center">In this example, by entering some text and then pressing the button, this will initiate an AJAX request to Twitter.com and find tweets relating to the search parameters you entered. If Twitter.com responds with successful search results, the search box and button will be replaced by the resulting tweets otherwise an error will be shown.</p>
+                    <div class="ajax-wrapper text-center">
+
+                        <p>Here is an example of how AJAX can be used to retrieve some data from this website's database. The data retrieved can then be processed and displayed onscreen.</p>
+
+                        <button class="btn btn-danger btn-round ajax-btn" type="button">Get Images</button>
+
+                    </div>
+
+                    <div class="ajax-replacement-wrapper text-center">
+
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="..." alt="...">
+                                    <div class="carousel-caption">
+                                        ...
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="..." alt="...">
+                                    <div class="carousel-caption">
+                                        ...
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="..." alt="...">
+                                    <div class="carousel-caption">
+                                        ...
+                                    </div>
+                                </div>
+                                ...
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+                            <p>In this example, a REST API was created so that AJAX requests from this website can used to retrieve some images from the database. The AJAX request to the server will handle the returned data and display it on screen.</p>
+                            <button class="btn btn-danger btn-fill btn-round ajax-btn" type="button">Back</button>
+                    </div>
 
                 </div>
-
-                <div class="col-md-6 col-md-offset-3 title-padding">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search Twitter for...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary btn-fill" id="ajax-btn" type="button">Go!</button>
-                        </span>
-                    </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
             </div>
         </div>
     </section>
@@ -88,8 +175,6 @@
 
 
     <!-- /MACHINE LEARNING SECTION-->
-
-
 
 
 {% endblock %}

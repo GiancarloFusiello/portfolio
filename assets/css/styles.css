@@ -157,7 +157,7 @@ Home About Section
 
 .contact p a {
     font-family: 'Product Sans', Arial, sans-serif;
-    font-weight: 200;
+    font-weight: 100;
 }
 
 
@@ -169,24 +169,28 @@ Home AJAX Section
 
 
 .section-ajax {
-    background-color: #001d33;
+    /*background-color: #001d33;*/
+    background-color: #333;
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 10;
 }
 
-.section-ajax p {
-    font-weight: 400;
+#ajax-title {
+    padding-bottom: 3%;
+    border-bottom: 1px solid #e74c3c;
 }
 
-#ajax {
-    font-weight: 400;
+.ajax-replacement-wrapper {
+    display: none;
 }
 
-#ajax-btn {
-    border-bottom: 0 none;
+.ajax-btn {
+    color: #fff;
+    border-color: #fff;
+    margin: 40px auto 40px;
+    font-size: 18px;
 }
-
 
 
 /********
