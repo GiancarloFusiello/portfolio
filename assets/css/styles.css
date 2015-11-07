@@ -192,6 +192,15 @@ Home AJAX Section
     font-size: 18px;
 }
 
+.carousel-inner > .item {
+    height: 400px;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    height: 100%;
+}
+
 
 /********
 Home Footer Section
