@@ -166,10 +166,7 @@ Home About Section
 Home AJAX Section
 *********/
 
-
-
 .section-ajax {
-    /*background-color: #001d33;*/
     background-color: #333;
     background-size: cover;
     background-repeat: no-repeat;
@@ -193,13 +190,15 @@ Home AJAX Section
 }
 
 .carousel-inner > .item {
-    height: 400px;
+    height: 60vh;
+    -o-background-size: contain;
+    -moz-background-size: contain;
+    -webkit-background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.carousel-inner > .item > img {
-    margin: 0 auto;
-    height: 100%;
-}
+
 
 
 /********

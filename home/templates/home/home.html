@@ -5,6 +5,19 @@
     <script>
 
         /*********
+        *  Nav Bar
+        *********/
+        $(document).ready(function(){
+
+            // Scroll to Ajax section
+            $('#ajax-nav-link').click(function(){
+                $("html, body").animate({ scrollTop: $('#ajax-title').offset().top - 50 }, 1000);
+            })
+
+
+        });
+
+        /*********
         *  Ajax Section
         *********/
         $(document).ready(function(){
@@ -15,7 +28,7 @@
             var carousel = $('#ajax-carousel');
             var carText = $('#carousel-text');
             var errorText = 'Something went wrong. Please go back and try again.';
-            var successText = 'In this example, a REST API was created so that AJAX requests from this website can used to retrieve some images from the database. The AJAX request to the server will handle the returned data and display it on screen.';
+            var successText = $('#carousel-text').val();
             var url = "{% url 'images_api' %}";
 
 
@@ -31,8 +44,7 @@
                         success: function(response) {
 
                             for(var i = 0; i < response.length;  i++){
-                                $('#img-' + (i + 1)).attr('src', response[i]['image']);
-                                $('#img-' + (i + 1)).attr('alt', response[i]['image'].split("/").pop());
+                                  $('#img-' + (i + 1)).css('background-image', 'url(' + response[i]['image'] + ')');
                             }
 
                             $("html, body").animate({ scrollTop: $('#ajax-title').offset().top - 50 }, 1000);
@@ -137,14 +149,14 @@
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <img id="img-1" src="" alt="">
+                                <div class="item active" id="img-1">
+                                    {#<img id="img-1" src="" alt="">#}
                                 </div>
-                                <div class="item">
-                                    <img id="img-2" src="" alt="">
+                                <div class="item" id="img-2">
+                                    {#<img id="img-2" src="" alt="">#}
                                 </div>
-                                <div class="item">
-                                    <img id="img-3" src="" alt="">
+                                <div class="item" id="img-3">
+                                    {#<img id="img-3" src="" alt="">#}
                                 </div>
                             </div>
 
@@ -169,10 +181,10 @@
     </section>
     <!-- /AJAX SECTION -->
 
-    <!-- REST SECTION -->
+    <!-- 3RD PARTY API SECTION -->
 
 
-    <!-- /REST SECTION -->
+    <!-- /3RD PARTY API SECTION -->
 
     <!-- DATA ANALYSIS SECTION -->
 
