@@ -185,12 +185,12 @@ Home AJAX Section
 .ajax-btn {
     color: #fff;
     border-color: #fff;
-    margin: 40px auto 40px;
+    margin: 25px auto 40px;
     font-size: 18px;
 }
 
 .carousel-inner > .item {
-    height: 60vh;
+    height: 55vh;
     -o-background-size: contain;
     -moz-background-size: contain;
     -webkit-background-size: contain;
