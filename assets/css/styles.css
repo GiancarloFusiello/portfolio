@@ -95,7 +95,7 @@ Home Intro/Title Section
 
 .img-src {
     background-color: #0e1215;
-    background-image: url('https://s3.amazonaws.com/creativetim_bucket/get_shit_done/img/bg.jpg');
+    /*background-image: url('https://s3.amazonaws.com/creativetim_bucket/get_shit_done/img/bg.jpg');*/
     z-index: -1;
 }
 
@@ -198,6 +198,38 @@ Home AJAX Section
     background-position: center;
 }
 
+
+/********
+Home 3rd party API Section
+*********/
+
+.section-api {
+    background-color: #FFFFFF;
+    color: #333;
+    height: 800px;
+}
+
+
+
+/********
+Home Data Analysis Section
+*********/
+
+.section-data {
+    background-color: #FF3B30;
+    height: 800px;
+}
+
+
+/********
+Home Machine Learning Section
+*********/
+
+.section-machine {
+    background-color: #f4f379;
+    color: #333;
+    height: 800px;
+}
 
 
 
