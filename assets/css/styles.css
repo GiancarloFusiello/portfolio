@@ -312,7 +312,7 @@ Loading Page Screen
         top: 0;
         width: 51%;
         height: 100%;
-        background: #222;
+        /*background: #222;*/
         z-index: 20;
     }
 
@@ -356,6 +356,10 @@ Loading Page Screen
 /********
 Home Intro/Title Section
 *********/
+
+.intro-title .intro-subtitle{
+    visibility: hidden;
+}
 
 .text-intro {
     font-family: 'Product Sans', Arial, sans-serif;
