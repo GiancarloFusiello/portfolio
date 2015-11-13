@@ -39,7 +39,7 @@
 
             var wrapper = $('.ajax-wrapper');
             var replacementWrapper = $('.ajax-replacement-wrapper');
-            var getFeed = true;
+            var getFeed = true; // Used to toggle AJAX
             var carousel = $('#ajax-carousel');
             var carText = $('#carousel-text');
             var errorText = 'Something went wrong. Please go back and try again.';
@@ -58,11 +58,13 @@
                         url: url,
                         success: function(response) {
 
+                            // Scroll to display new content
+                            $("html, body").animate({ scrollTop: $('#ajax-title').offset().top - 50 }, 1000);
+
+                            // Populate carousel with images from AJAX request
                             for(var i = 0; i < response.length;  i++){
                                   $('#img-' + (i + 1)).css('background-image', 'url(' + response[i]['image'] + ')');
                             }
-
-                            $("html, body").animate({ scrollTop: $('#ajax-title').offset().top - 50 }, 1000);
 
                             getFeed = false;
 
@@ -71,15 +73,38 @@
                             }
 
                     },
-                    error: function(error, response) {
-                        console.log("Error message: " + error);
-                        console.log(response);
-                        getFeed = false;
-                        carousel.hide();
-                        carText.val(errorText);
+                        error: function(error, response) {
+                            console.log("Error message: " + error);
+                            console.log(response);
+                            getFeed = false;
+                            carousel.hide();
+                            carText.val(errorText);
 
-                    }
-                });
+                    },
+                        complete: function(){
+
+                            // Show loading animation until images have finished loading
+                            //remove animated divs
+                            function stopLoader() {
+
+                                $('body').addClass("loaded");
+
+                                setTimeout(function () {
+                                            $('.loader-section').addClass('animated fadeOut');
+                                        }, 450
+                                );
+
+                                setTimeout(function () {
+                                            $('.spinner').remove();
+                                            $('#loader-section').remove();
+                                            $('#ajax-carousel').removeClass("loading-section-wrapper");
+                                            $('body').removeClass("loaded");
+                                        }, 1000
+                                );
+                            }
+                            stopLoader();
+                        }
+                    });
                 } else {
                     getFeed = true;
                 }
@@ -107,7 +132,7 @@
                         I started with learning Java - learning the basic principles of programming and Object Oriented Programming. I was particularly fond of creating Apps for Android as the tools are free and Google provide a lot of documentation. Once I become confident with programming, I started to learn frontend web technologies such as HTML5, CSS3 and Javascript. This is when I discovered Python and the Django framework. Since discovering Python, I have to say, I'm a huge fan and find myself researching what else I can use Python for.
                     </p>
                     <p>
-                    More recently, I have completed many courses from Codecademy.com, Treehouse.com, CodingForEntrepreneurs.com and  Dataquest.io, as well as many Django tutorials such as Django Polls and DjangoGirls. In these courses I have progressed with learning Python and have also become familiar with Django, jQuery, Bootstrap, Git, SQL, AJAX, REST APIs, libraries such as Requests, NumPy, Pandas, scripting using Bash, Bat and PowerShell and with using Windows CMD, Mac OS X and linux terminals.
+                    More recently, I have completed many courses from <a target="_blank" href="https://www.codecademy.com/">Codecademy.com</a>, <a target="_blank" href="https://teamtreehouse.com/">Treehouse.com</a>, <a target="_blank" href="https://codingforentrepreneurs.com/">CodingForEntrepreneurs.com</a> and  <a target="_blank" href="https://www.dataquest.io/">Dataquest.io</a>, as well as many Django tutorials such as <a target="_blank" href="https://docs.djangoproject.com/en/1.8/intro/tutorial01/">Django Polls</a> and <a target="_blank" href="http://tutorial.djangogirls.org/">DjangoGirls</a>. In these courses I have progressed with learning Python and have also become familiar with Django, jQuery, Bootstrap, Git, SQL, AJAX, REST APIs, libraries such as Requests, NumPy, Pandas, scripting using Bash, Bat and PowerShell and with using Windows CMD, Mac OS X and linux terminals.
                     </p>
 
                     <p>
@@ -120,15 +145,15 @@
 
                     <div class="contact">
                         <i class="fa fa-twitter fa-2x" id="twitter-icon"></i>
-                        <p class=""><a class="remove-decoration" href="https://twitter.com/g_fusiello">@g_fusiello</a></p>
+                        <p class=""><a class="remove-decoration" target="_blank" href="https://twitter.com/g_fusiello">@g_fusiello</a></p>
                     </div>
                     <div class="contact">
                         <i class="fa fa-google-plus fa-2x" id="google-icon"></i>
-                        <p><a class="remove-decoration" href="https://plus.google.com/+GiancarloFusiello/">+GiancarloFusiello</a></p>
+                        <p><a class="remove-decoration" target="_blank" href="https://plus.google.com/+GiancarloFusiello/">+GiancarloFusiello</a></p>
                     </div>
                     <div class="contact">
                         <i class="fa fa-envelope-o fa-2x" id="email-icon"></i>
-                        <p><a class="remove-decoration" href="mailto:someemail@domain.com">carlofusiello@gmail.com</a></p>
+                        <p><a class="remove-decoration" target="_blank" href="mailto:someemail@domain.com">carlofusiello@gmail.com</a></p>
                     </div>
 
                 </div>
@@ -154,7 +179,12 @@
 
                     <div class="ajax-replacement-wrapper text-center">
 
-                        <div id="ajax-carousel" class="carousel slide" data-ride="carousel">
+                        <div id="ajax-carousel" class="carousel slide loading-section-wrapper" data-ride="carousel">
+
+                            <div class="spinner"></div>
+
+                            <div class="loader-section section-left"></div>
+                            <div class="loader-section section-right"></div>
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
                                 <li data-target="#ajax-carousel" data-slide-to="0" class="active"></li>
@@ -164,15 +194,9 @@
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
-                                <div class="item active" id="img-1">
-                                    {#<img id="img-1" src="" alt="">#}
-                                </div>
-                                <div class="item" id="img-2">
-                                    {#<img id="img-2" src="" alt="">#}
-                                </div>
-                                <div class="item" id="img-3">
-                                    {#<img id="img-3" src="" alt="">#}
-                                </div>
+                                <div class="item active" id="img-1"></div>
+                                <div class="item" id="img-2"></div>
+                                <div class="item" id="img-3"></div>
                             </div>
 
                             <!-- Controls -->

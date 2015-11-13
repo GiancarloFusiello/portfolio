@@ -56,13 +56,21 @@
 
         <script>
             $(window).load(function(){
+
                 $('body').addClass("loaded");
 
                 setTimeout(function(){
                     $('#intro-title').addClass('animated fadeInLeft');
                     $('#intro-subtitle').addClass('animated fadeInRightBig');
-                    }, 500
+                    }, 450
                 );
+
+                setTimeout(function(){
+                    $('#loading-page').remove();
+                    $('body').removeClass("loaded");
+                    }, 1000
+                );
+
             });
         </script>
 
@@ -147,8 +155,8 @@
 
 
     <!-- LOADING PAGE -->
-    <div id="loader-wrapper">
-        <div id="loader"></div>
+    <div id="loading-page" class="loading-page-wrapper">
+        <div class="loader"></div>
 
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
