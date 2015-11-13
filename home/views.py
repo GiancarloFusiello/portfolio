@@ -8,8 +8,9 @@ from .models import Images
 class HomeView(TemplateView):
     template_name = 'home/home.html'
 
-    # def get(self, request, *args, **kwargs):
-    #     if request.is_ajax():
+    def post(self):
+
+        return
 
 
 class ImagesListAPIView(ListAPIView):

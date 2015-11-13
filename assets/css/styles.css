@@ -81,6 +81,37 @@ p {
     color: #333;
 }
 
+/* add glowing blue highlight for input boxes */
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #c8c8c8;
+}
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+input::-webkit-input-placeholder {
+   color: #c8c8c8 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: #c8c8c8 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: #c8c8c8 !important;
+}
+
+input:-ms-input-placeholder {
+   color: #c8c8c8 !important;
+}
+
 
 
 
@@ -452,13 +483,12 @@ Home AJAX Section
     border-bottom: 1px solid #FF3B30;
 }
 
-.ajax-replacement-wrapper {
+#ajax-replacement-wrapper {
     display: none;
 }
 
 .ajax-btn {
     color: #fff;
-    border-color: #fff;
     margin: 25px auto 40px;
     font-size: 18px;
 }
@@ -478,10 +508,58 @@ Home 3rd party API Section
 *********/
 
 .section-api {
-    background-color: #FFFFFF;
-    color: #333;
-    height: 800px;
+    background-color: #FFF;
 }
+
+#api-title {
+    margin-bottom: 40px;
+}
+
+#custom-search-input {
+        margin:0;
+        margin-top: 30px;
+        padding: 0;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#D9230F;
+}
+
+.search-query:focus + button {
+    z-index: 3;
+}
+
+#api-form {
+    margin-bottom: 40px;
+}
+
+
+
 
 
 
@@ -490,7 +568,7 @@ Home Data Analysis Section
 *********/
 
 .section-data {
-    background-color: #FF3B30;
+    background-color: #003171;
     height: 800px;
 }
 
@@ -500,8 +578,7 @@ Home Machine Learning Section
 *********/
 
 .section-machine {
-    background-color: #f4f379;
-    color: #333;
+    background-color: #03A678;
     height: 800px;
 }
 

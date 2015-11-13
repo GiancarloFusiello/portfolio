@@ -62,8 +62,8 @@
         *********/
         $(document).ready(function(){
 
-            var wrapper = $('.ajax-wrapper');
-            var replacementWrapper = $('.ajax-replacement-wrapper');
+            var wrapper = $('#ajax-wrapper');
+            var replacementWrapper = $('#ajax-replacement-wrapper');
             var getFeed = true; // Used to toggle AJAX
             var carousel = $('#ajax-carousel');
             var carText = $('#carousel-text');
@@ -127,21 +127,21 @@
                     <h4 class="header-text text-left title-padding">About Me</h4>
 
                     <p>
-                        For the last seven years, I have worked in the IT industry, from providing support for users to infrastructure in universities to financial trading floors. I have been exposed to a lot of technology during my experience and find myself constantly learning new technology, which is one of the aspects I enjoy working in IT.</p>
+                        For the last seven years, I have worked in the IT industry, from providing support for users to infrastructure in universities to financial trading floors. I have been exposed to a lot of technology during my experience and find myself constantly learning about new technologies, which is one of the aspects I enjoy working in IT.</p>
 
                     <p>
-                        In early 2014, I decided to train to become a software engineer - something that I have always wanted to do but didn't have the confidence to take up, as I was under the impression that you needed to be a rocket scientist or something of that regard.
+                        In early 2014, I decided to re-train myself to become a software engineer - something that I have always wanted to do but didn't have the confidence to take up earlier but now I'm determined.
                     </p>
 
                     <p>
-                        I started with learning Java - learning the basic principles of programming and Object Oriented Programming. I was particularly fond of creating Apps for Android as the tools are free and Google provide a lot of documentation. Once I become confident with programming, I started to learn frontend web technologies such as HTML5, CSS3 and Javascript. This is when I discovered Python and the Django framework. Since discovering Python, I have to say, I'm a huge fan and find myself researching what else I can use Python for.
+                        I started with learning Java - learning the basic principles of programming and Object Oriented Programming. I was particularly fond of creating Apps for Android as the tools are free and Google provide a lot of documentation. Once I become confident with programming, I started to learn frontend web technologies such as HTML5, CSS3 and Javascript. Shortly after, I discovered Python and the Django framework. Since discovering Python, I have to say, I'm a huge fan and find myself researching what else I can use Python for.
                     </p>
                     <p>
                     More recently, I have completed many courses from <a target="_blank" href="https://www.codecademy.com/">Codecademy.com</a>, <a target="_blank" href="https://teamtreehouse.com/">Treehouse.com</a>, <a target="_blank" href="https://codingforentrepreneurs.com/">CodingForEntrepreneurs.com</a> and  <a target="_blank" href="https://www.dataquest.io/">Dataquest.io</a>, as well as many Django tutorials such as <a target="_blank" href="https://docs.djangoproject.com/en/1.8/intro/tutorial01/">Django Polls</a> and <a target="_blank" href="http://tutorial.djangogirls.org/">DjangoGirls</a>. In these courses I have progressed with learning Python and have also become familiar with Django, jQuery, Bootstrap, Git, SQL, AJAX, REST APIs, libraries such as Requests, NumPy, Pandas, scripting using Bash, Bat and PowerShell and with using Windows CMD, Mac OS X and linux terminals.
                     </p>
 
                     <p>
-                        My goal is that one day I will be part of something truly amazing and that I can be proud to have contributed to it.
+                        My goal is make a career out of something I enjoy so that I never have to work another day again.
                     </p>
                 </div>
 
@@ -174,7 +174,7 @@
 
                     <h4 class="header-text title-padding white-text large-title" id="ajax-title">REST API & Ajax</h4>
 
-                    <div class="ajax-wrapper text-center">
+                    <div id="ajax-wrapper" class="text-center">
 
                         <p>Here is an example of how AJAX can be used to retrieve some data from this website's database. The data retrieved can then be processed and displayed onscreen using Javascript.</p>
 
@@ -182,7 +182,7 @@
 
                     </div>
 
-                    <div class="ajax-replacement-wrapper text-center">
+                    <div id="ajax-replacement-wrapper" class="text-center">
 
                         <div id="ajax-carousel" class="carousel slide loading-section-wrapper" data-ride="carousel">
 
@@ -232,9 +232,34 @@
             <div class="row section-padding">
                 <div class="col-md-10 col-md-offset-1">
 
-                    <h4 class="header-text title-padding large-title" id="api-title">Third Party API</h4>
+                    <h4 class="header-text title-padding large-title text-center" id="api-title">Third Party API</h4>
 
-                    <p>Coming Soon...</p>
+                    <div id="api-wrapper" class="text-center">
+
+                        <p>In this section, I will demonstrate requesting and serving data from another website with public APIs using django views and the python requests library.</p>
+
+                        <p>The API being used is from <a target="_blank" href="http://www.rottentomatoes.com/">RottenTomatoes.com</a>. Enter the name of a movie below and you should see information abou that movie appear on screen.</p>
+
+                        <form id="api-form" action="" method="POST" role="search">
+                            {% csrf_token %}
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-6 col-md-offset-3">
+                                  <input type="text" class="search-query form-control" placeholder="Search for a movie and hit enter" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger" type="submit">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <div id="api-replacement-wrapper" class="text-center">
+
+
+                    </div>
 
                 </div>
             </div>
@@ -259,12 +284,12 @@
     <!-- /DATA ANALYSIS SECTION -->
 
     <!-- MACHINE LEARNING SECTION-->
-    <section class="section section-machine">
+    <section class="section section-machine white-text">
         <div class="container">
             <div class="row section-padding">
                 <div class="col-md-10 col-md-offset-1">
 
-                    <h4 class="header-text title-padding large-title" id="machine-title">Machine Learning</h4>
+                    <h4 class="header-text title-padding large-title white-text" id="machine-title">Machine Learning</h4>
 
                     <p>Coming Soon...</p>
 
