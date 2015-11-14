@@ -146,7 +146,12 @@
                 </div>
 
                 <div class="col-md-4 col-md-offset-1">
-                    <h4 class="header-text text-left title-padding">Contact</h4>
+                    <img src="{% static 'img/carlo.jpg' %}" alt="Circle Image" id="img-carlo" class="img-circle">
+
+                    <div class="contact">
+                        <i class="fa fa-github fa-2x" id="github-icon"></i>
+                        <p class=""><a class="remove-decoration" target="_blank" href="https://github.com/GiancarloFusiello/">GiancarloFusiello</a></p>
+                    </div>
 
                     <div class="contact">
                         <i class="fa fa-twitter fa-2x" id="twitter-icon"></i>
@@ -156,6 +161,12 @@
                         <i class="fa fa-google-plus fa-2x" id="google-icon"></i>
                         <p><a class="remove-decoration" target="_blank" href="https://plus.google.com/+GiancarloFusiello/">+GiancarloFusiello</a></p>
                     </div>
+
+                    <div class="contact">
+                        <i class="fa fa-linkedin-square fa-2x" id="linkedin-icon"></i>
+                        <p class=""><a class="remove-decoration" target="_blank" href="https://uk.linkedin.com/in/giancarlofusiello">GiancarloFusiello</a></p>
+                    </div>
+
                     <div class="contact">
                         <i class="fa fa-envelope-o fa-2x" id="email-icon"></i>
                         <p><a class="remove-decoration" target="_blank" href="mailto:someemail@domain.com">carlofusiello@gmail.com</a></p>
@@ -238,7 +249,7 @@
 
                         <p>In this section, I will demonstrate requesting and serving data from another website with public APIs using django views and the python requests library.</p>
 
-                        <p>The API being used is from <a target="_blank" href="http://www.rottentomatoes.com/">RottenTomatoes.com</a>. Enter the name of a movie below and you should see information abou that movie appear on screen.</p>
+                        <p>The API being used is from <a target="_blank" href="http://www.rottentomatoes.com/">RottenTomatoes.com</a>. Enter the name of a movie below and you should see information about that movie appear on screen.</p>
 
                         <form id="api-form" action="" method="POST" role="search">
                             {% csrf_token %}

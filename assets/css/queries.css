@@ -1,0 +1,12 @@
+@media (max-width: 991px){
+
+    /********
+    Home About Section
+    *********/
+
+    #img-carlo {
+        display: block;
+        margin:50px auto;
+    }
+
+}

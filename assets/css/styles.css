@@ -388,6 +388,14 @@ Loading Page Screen
 Home Intro/Title Section
 *********/
 
+#intro-content {
+    position: absolute;
+    top: 170px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
 .intro-title .intro-subtitle{
     visibility: hidden;
 }
@@ -404,9 +412,6 @@ Home Intro/Title Section
     z-index: -1;
 }
 
-.img-src div h1:first-child {
-    padding-top: 30%;
-}
 
 .text-yellow {
     color: #f1c40f;
@@ -429,6 +434,13 @@ Home Intro/Title Section
 Home About Section
 *********/
 
+#github-icon {
+    color: #000;
+}
+
+#linkedin-icon {
+    color: #4875B4;
+}
 
 #twitter-icon {
     color: #00aced;
@@ -465,7 +477,12 @@ Home About Section
     font-weight: 100;
 }
 
-
+#img-carlo {
+    margin: 75px 0 30px 0;
+    width: 65%;
+    max-width: 375px;
+    height: auto;
+}
 
 /********
 Home AJAX Section
@@ -516,9 +533,9 @@ Home 3rd party API Section
 }
 
 #custom-search-input {
-        margin:0;
-        margin-top: 30px;
-        padding: 0;
+    margin:0;
+    margin-top: 30px;
+    padding: 0;
 }
 
 #custom-search-input .search-query {
@@ -526,6 +543,7 @@ Home 3rd party API Section
     padding-right: 4px \9;
     padding-left: 3px;
     padding-left: 4px \9;
+    z-index: 1;
     /* IE7-8 doesn't have border-radius, so don't indent the padding */
 
     margin-bottom: 0;
@@ -548,6 +566,7 @@ Home 3rd party API Section
     -moz-border-radius: 3px;
     border-radius: 3px;
     color:#D9230F;
+    z-index: 1;
 }
 
 .search-query:focus + button {

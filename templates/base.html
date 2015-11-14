@@ -39,6 +39,9 @@
         <!-- Site CSS -->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 
+        <!-- Site CSS -->
+        <link href="{% static 'css/queries.css' %}" rel="stylesheet">
+
         <!-- Page Specific CSS -->
         {% block stylesheet %}{% endblock %}
 
@@ -120,31 +123,35 @@
             <div class="blurred-container">
                 <div class="img-src" style="background-image: url({% static 'img/md-blue.jpg' %})">
                     <div class="col-md-6 col-md-offset-3">
-                        <h1 id="intro-title" class="text-center text-intro">Giancarlo Fusiello</h1>
-                        <img class="img-responsive animated fadeIn" id="py-logo" src="{% static 'img/py-logo.png' %}" alt="python logo icon"/>
-                        <div class="cycle-slideshow"
-                             data-cycle-fx="fade"
-                             data-cycle-timeout="2000"
-                             data-cycle-slides="> div"
-                             data-cycle-center-horz=true>
+                        <div class="row">
+                            <div id="intro-content">
+                                <h1 id="intro-title" class="text-center text-intro">Giancarlo Fusiello</h1>
+                                <img class="img-responsive animated fadeIn" id="py-logo" src="{% static 'img/py-logo.png' %}" alt="python logo icon"/>
+                                <div class="cycle-slideshow"
+                                     data-cycle-fx="fade"
+                                     data-cycle-timeout="2000"
+                                     data-cycle-slides="> div"
+                                     data-cycle-center-horz=true>
 
-                            <div>
-                                <h3 id="intro-subtitle" class="text-intro">
-                                    <span class="text-yellow">Python</span>
-                                    <span class="text-blue"> Developer</span>
-                                </h3>
-                            </div>
-                            <div>
-                                <h3 class="text-intro">
-                                    <span class="text-yellow">FullStack</span>
-                                    <span class="text-blue"> Developer</span>
-                                </h3>
-                            </div>
-                            <div>
-                                <h3 class="text-intro">
-                                    <span class="text-yellow">Data</span>
-                                    <span class="text-blue">Analyst</span>
-                                </h3>
+                                    <div>
+                                        <h3 id="intro-subtitle" class="text-intro">
+                                            <span class="text-yellow">Python</span>
+                                            <span class="text-blue"> Developer</span>
+                                        </h3>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-intro">
+                                            <span class="text-yellow">FullStack</span>
+                                            <span class="text-blue"> Developer</span>
+                                        </h3>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-intro">
+                                            <span class="text-yellow">Data</span>
+                                            <span class="text-blue">Analyst</span>
+                                        </h3>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
