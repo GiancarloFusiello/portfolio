@@ -116,6 +116,30 @@
             })
         });
 
+    /*********
+     *  API Section
+     *********/
+
+    $(document).ready(function(){
+
+        $('#api-search-btn').click(function(){
+
+            $.ajax({
+                type: 'POST',
+                async: true,
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    movieTitle: $('#api-search-input').val()
+                },
+                success: function(response){
+                    alert(response.movie_info["results"][0]["title"]);
+                }
+            });
+
+        })
+
+    })
+
     </script>
 {% endblock %}
 
@@ -249,15 +273,15 @@
 
                         <p>In this section, I will demonstrate requesting and serving data from another website with public APIs using django views and the python requests library.</p>
 
-                        <p>The API being used is from <a target="_blank" href="http://www.rottentomatoes.com/">RottenTomatoes.com</a>. Enter the name of a movie below and you should see information about that movie appear on screen.</p>
+                        <p>The API being used is from <a target="_blank" href="https://www.themoviedb.org/">themoviedb.org</a>. Enter the name of a movie below and you should see information about that movie appear on screen.</p>
 
-                        <form id="api-form" action="" method="POST" role="search">
+                        <form id="api-form" onsubmit="return false;">
                             {% csrf_token %}
                             <div id="custom-search-input">
                                 <div class="input-group col-md-6 col-md-offset-3">
-                                  <input type="text" class="search-query form-control" placeholder="Search for a movie and hit enter" />
+                                    <input id="api-search-input" type="text" class="search-query form-control" placeholder="Search for a movie and hit enter" />
                                     <span class="input-group-btn">
-                                        <button class="btn btn-danger" type="submit">
+                                        <button id="api-search-btn" class="btn btn-danger">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
                                     </span>
