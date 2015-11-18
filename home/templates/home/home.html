@@ -8,9 +8,22 @@
         *  Global Functions
         *********/
 
-        // Show loading animation until images have finished loading
-        //remove animated divs
-        function stopLoader() {
+        // Show loading animation until content has finished loading
+        function startLoader(wrapper_id, color){
+
+            // wrapper_id is your content container - the loading animation will fill this area.
+            // color sets the background of the loading area, e.g. background color of your container.
+
+            $(wrapper_id).addClass("loading-section-wrapper");
+
+            $(wrapper_id).append('<div class="spinner"></div>' +
+                            '<div class="loader-section section-left" style="background:' + color + '"></div>' +
+                            '<div class="loader-section section-right" style="background:' + color + '"></div>');
+        }
+
+        function stopLoader(wrapper_id) {
+
+            // wrapper_id is your content container.
 
             $('body').addClass("loaded");
 
@@ -21,8 +34,8 @@
 
             setTimeout(function () {
                         $('.spinner').remove();
-                        $('#loader-section').remove();
-                        $('#ajax-carousel').removeClass("loading-section-wrapper");
+                        $('.loader-section').remove();
+                        $(wrapper_id).removeClass("loading-section-wrapper");
                         $('body').removeClass("loaded");
                     }, 1000
             );
@@ -73,18 +86,22 @@
 
 
             $('.ajax-btn').click(function () {
+
                 wrapper.toggle();
                 replacementWrapper.toggle();
 
+                // Scroll to display new content
+                $("html, body").animate({ scrollTop: $('#ajax-title').offset().top - 50 }, 1000);
+
 
                 if(getFeed === true){
+
+                    startLoader(carousel,'#000');
+
                     $.ajax({
                         type: 'GET',
                         url: url,
                         success: function(response) {
-
-                            // Scroll to display new content
-                            $("html, body").animate({ scrollTop: $('#ajax-title').offset().top - 50 }, 1000);
 
                             // Populate carousel with images from AJAX request
                             for(var i = 0; i < response.length;  i++){
@@ -93,6 +110,7 @@
 
                             getFeed = false;
 
+                            // revert text if previous error occurred
                             if(carText.val() === errorText){
                                 carText.val(successText);
                             }
@@ -107,7 +125,7 @@
 
                     },
                         complete: function(){
-                            stopLoader();
+                            stopLoader(carousel);
                         }
                     });
                 } else {
@@ -116,32 +134,127 @@
             })
         });
 
+
     /*********
      *  API Section
      *********/
 
     $(document).ready(function(){
 
+        var wrapper = $('#api-wrapper');
+        var replacementWrapper = $('#api-replacement-wrapper');
+        var getFeed = true; // Used to toggle AJAX
+        var movieTitle = $('#api-movie-title');
+        var movieText = $('#api-text');
+        var movieImage = $('#api-img');
+        var errorText = 'Something went wrong. Please go back and try again.';
+        var nonExistText = 'The movie you have searched for does not exist. Please go back and try another.';
+        var imgUrl = "https://image.tmdb.org/t/p/w185";
+        var apiBtn = $('.api-btn');
+
+
         $('#api-search-btn').click(function(){
 
-            $.ajax({
-                type: 'POST',
-                async: true,
-                data: {
-                    csrfmiddlewaretoken: '{{ csrf_token }}',
-                    movieTitle: $('#api-search-input').val()
-                },
-                success: function(response){
-                    alert(response.movie_info["results"][0]["title"]);
-                }
-            });
+            wrapper.toggle();
+            replacementWrapper.toggle();
 
-        })
+            if(getFeed === true){
+
+                startLoader(replacementWrapper, '#FFF');
+
+                $.ajax({
+                    type: 'POST',
+                    async: true,
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        movieTitle: $('#api-search-input').val()
+                    },
+                    success: function(response) {
+
+                        // Scroll to display new content
+                        $("html, body").animate({scrollTop: $('#api-title').offset().top - 50}, 1000);
+
+                        // check if elements have been hidden by previous query errors
+                        if (movieTitle.is(':visible')) {
+                        } else {
+                            movieTitle.show()
+                        }
+                        if (movieImage.is(':visible')) {
+                        } else {
+                            movieImage.show()
+                        }
+
+                        // Check if themoviedb.com returns the correct data. It will return the key status_message if there is a problem.
+                        if (response.movie_info["status_message"]) {
+
+                            movieTitle.hide();
+                            movieImage.hide();
+                            movieText.text(errorText);
+                            getFeed = false;
+
+                            // checks if the query has returned any results
+                        } else if(response.movie_info["total_results"] === 0){
+
+                            movieTitle.hide();
+                            movieImage.hide();
+                            movieText.text(nonExistText);
+                            getFeed = false;
+
+                        } else {
+
+                            // lesser known films might not have a poster. Move to the next result providing there is more than one result.
+                            var i = 0;
+                            if(response.movie_info["results"].length > 1) {
+                                if (response.movie_info["results"][i]["poster_path"] === null) {
+                                    i++;
+                                }
+                            }
+
+                            movieTitle.text(response.movie_info["results"][i]["title"]);
+                            movieImage.attr("src", "" + imgUrl + response.movie_info["results"][i]["poster_path"]);
+                            movieText.text(response.movie_info["results"][i]["overview"]);
+                            getFeed = false;
+
+                            // test
+                            {# console.log("movie title = " + movieTitle.val());#}
+                            {# console.log("image url is = " + movieImage.attr("src"));#}
+                            {# console.log("movie overview = " + movieText.val());#}
+                        }
+                    },
+                    error: function(error, response) {
+                            console.log("Error message: " + error);
+                            console.log(response);
+                            getFeed = false;
+
+                            movieTitle.hide();
+                            movieImage.hide();
+                            movieText.val(errorText);
+
+                    },
+                    complete: function() {
+                        stopLoader(replacementWrapper);
+                    }
+                });
+            } else {
+                getFeed = true;
+            }
+        });
+
+        // return the view back to normal
+        apiBtn.click(function () {
+            wrapper.toggle();
+            replacementWrapper.toggle();
+            getFeed = true;
+
+            // Scroll to displayed content
+            $("html, body").animate({scrollTop: $('#api-title').offset().top - 50}, 1000);
+        });
 
     })
 
     </script>
 {% endblock %}
+
 
 {% block content %}
     <div class="main">
@@ -170,36 +283,41 @@
                 </div>
 
                 <div class="col-md-4 col-md-offset-1">
-                    <img src="{% static 'img/carlo.jpg' %}" alt="Circle Image" id="img-carlo" class="img-circle">
-
-                    <div class="contact">
-                        <i class="fa fa-github fa-2x" id="github-icon"></i>
-                        <p class=""><a class="remove-decoration" target="_blank" href="https://github.com/GiancarloFusiello/">GiancarloFusiello</a></p>
+                    <div class="contact-container">
+                        <img src="{% static 'img/carlo.jpg' %}" alt="Circle Image" id="img-carlo" class="img-circle">
                     </div>
 
-                    <div class="contact">
-                        <i class="fa fa-twitter fa-2x" id="twitter-icon"></i>
-                        <p class=""><a class="remove-decoration" target="_blank" href="https://twitter.com/g_fusiello">@g_fusiello</a></p>
-                    </div>
-                    <div class="contact">
-                        <i class="fa fa-google-plus fa-2x" id="google-icon"></i>
-                        <p><a class="remove-decoration" target="_blank" href="https://plus.google.com/+GiancarloFusiello/">+GiancarloFusiello</a></p>
-                    </div>
+                    <div class="contact-container">
+                        <div class="contact">
+                            <i class="fa fa-github fa-2x" id="github-icon"></i>
+                            <p class=""><a class="remove-decoration" target="_blank" href="https://github.com/GiancarloFusiello/">GiancarloFusiello</a></p>
+                        </div>
 
-                    <div class="contact">
-                        <i class="fa fa-linkedin-square fa-2x" id="linkedin-icon"></i>
-                        <p class=""><a class="remove-decoration" target="_blank" href="https://uk.linkedin.com/in/giancarlofusiello">GiancarloFusiello</a></p>
-                    </div>
+                        <div class="contact">
+                            <i class="fa fa-twitter fa-2x" id="twitter-icon"></i>
+                            <p class=""><a class="remove-decoration" target="_blank" href="https://twitter.com/g_fusiello">@g_fusiello</a></p>
+                        </div>
+                        <div class="contact">
+                            <i class="fa fa-google-plus fa-2x" id="google-icon"></i>
+                            <p><a class="remove-decoration" target="_blank" href="https://plus.google.com/+GiancarloFusiello/">+GiancarloFusiello</a></p>
+                        </div>
 
-                    <div class="contact">
-                        <i class="fa fa-envelope-o fa-2x" id="email-icon"></i>
-                        <p><a class="remove-decoration" target="_blank" href="mailto:someemail@domain.com">carlofusiello@gmail.com</a></p>
+                        <div class="contact">
+                            <i class="fa fa-linkedin-square fa-2x" id="linkedin-icon"></i>
+                            <p class=""><a class="remove-decoration" target="_blank" href="https://uk.linkedin.com/in/giancarlofusiello">GiancarloFusiello</a></p>
+                        </div>
+
+                        <div class="contact">
+                            <i class="fa fa-envelope-o fa-2x" id="email-icon"></i>
+                            <p><a class="remove-decoration" target="_blank" href="mailto:someemail@domain.com">carlofusiello@gmail.com</a></p>
+                        </div>
                     </div>
 
                 </div>
             </div>
         </div><!-- /CONTAINER -->
     </div><!-- /MAIN -->
+
 
     <!-- AJAX SECTION -->
     <section class="section section-ajax white-text" style="background-image: url('{% static "img/grey-background.jpg" %}')">
@@ -219,12 +337,9 @@
 
                     <div id="ajax-replacement-wrapper" class="text-center">
 
-                        <div id="ajax-carousel" class="carousel slide loading-section-wrapper" data-ride="carousel">
+                        <div id="ajax-carousel" class="carousel slide" data-ride="carousel">
 
-                            <div class="spinner"></div>
 
-                            <div class="loader-section section-left" style="background: #000"></div>
-                            <div class="loader-section section-right" style="background: #000"></div>
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
                                 <li data-target="#ajax-carousel" data-slide-to="0" class="active"></li>
@@ -250,9 +365,9 @@
                             </a>
                         </div>
 
-                            <p id="carousel-text">In this example, a REST API was created to serve images from the website's database. When you pressed the button, it used AJAX to request some data. Once the request response had been successfully received, a javascript function was used to process that data. The Javascript function modified the DOM and updated the website to show the new content.</p>
+                        <p id="carousel-text">In this example, a REST API was created to serve images from the website's database. When you pressed the button, it used AJAX to request some data. Once the request response had been successfully received, a javascript function was used to process that data. The Javascript function modified the DOM and updated the website to show the new content.</p>
                         <p>The back button below will update the site again so it looks like it has reverted the changes.</p>
-                            <button class="btn btn-danger btn-fill btn-round ajax-btn" type="button">Back</button>
+                        <button class="btn btn-danger btn-fill btn-round ajax-btn" type="button">Back</button>
                     </div>
 
                 </div>
@@ -260,6 +375,7 @@
         </div>
     </section>
     <!-- /AJAX SECTION -->
+
 
     <!-- 3RD PARTY API SECTION -->
     <section class="section section-api">
@@ -288,19 +404,20 @@
                                 </div>
                             </div>
                         </form>
-
                     </div>
 
                     <div id="api-replacement-wrapper" class="text-center">
-
-
+                        <h5 id="api-movie-title"></h5>
+                        <img id="api-img" src=""/>
+                        <p id="api-text"></p>
+                        <button class="btn btn-danger btn-fill btn-round api-btn" type="button">Back</button>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
     <!-- /3RD PARTY API SECTION -->
+
 
     <!-- DATA ANALYSIS SECTION -->
     <section class="section section-data white-text">
@@ -317,6 +434,7 @@
         </div>
     </section>
     <!-- /DATA ANALYSIS SECTION -->
+
 
     <!-- MACHINE LEARNING SECTION-->
     <section class="section section-machine white-text">

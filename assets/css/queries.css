@@ -5,8 +5,64 @@
     *********/
 
     #img-carlo {
-        display: block;
-        margin:50px auto;
+        margin-top: 0;
     }
 
 }
+
+
+
+@media (max-width: 675px){
+
+    /********
+    Home About Section
+    *********/
+
+    .contact-container {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+
+
+@media (max-width: 591px){
+
+    /********
+    Home About Section
+    *********/
+
+    #img-carlo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+@media (max-width: 446px){
+
+    /********
+    Home Machine Section
+    *********/
+
+   #machine-title {
+    font-size: 2.6em;
+    }
+}
+
+
+
+@media (max-width: 396px){
+
+    /********
+    Home Machine Section
+    *********/
+
+   .large-title {
+    font-size: 2.2em !important;
+    }
+}
+

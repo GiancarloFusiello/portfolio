@@ -23,7 +23,7 @@ class HomeView(TemplateView):
 
             if movie_title:
                 movie_info = movie_search(movie_title)
-                print(json.dumps(movie_info, indent=4))
+                # print(json.dumps(movie_info, indent=4))
             else:
                 return print("User did not enter a title.")
 
