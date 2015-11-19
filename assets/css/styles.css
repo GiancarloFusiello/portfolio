@@ -591,6 +591,7 @@ Home 3rd party API Section
     margin: 20px auto;
     height: 300px;
     width: auto;
+    box-shadow: 3px 5px 15px 2px grey;
 }
 
 .api-btn {
