@@ -1,0 +1,13 @@
+<p>
+                        For the last nine years I have worked in the IT industry. Providing support for users to infrastructure in universities to financial trading floors. I have been exposed to a lot of technology during my experience and find myself constantly learning about new technologies, which is one of the aspects I enjoy working in IT.</p>
+
+                    <p>
+                        In early 2014, I decided to re-train myself to become a software engineer - something that I have always wanted to do but didn't have the confidence to take up earlier but now I'm determined.
+                    </p>
+
+                    <p>
+                        I started with learning Java - learning the basic principles of programming and Object Oriented Programming. I was particularly fond of creating Apps for Android as the tools are free and Google provide a lot of documentation. Once I become confident with programming, I started to learn frontend web technologies such as HTML5, CSS3 and Javascript. Shortly after, I discovered Python and the Django framework. Since discovering Python, I have to say, I'm a huge fan and find myself researching what else I can use Python for.
+                    </p>
+                    <p>
+                    More recently, I have completed many courses from <a target="_blank" href="https://www.codecademy.com/">Codecademy.com</a>, <a target="_blank" href="https://teamtreehouse.com/">Treehouse.com</a>, <a target="_blank" href="https://codingforentrepreneurs.com/">CodingForEntrepreneurs.com</a> and  <a target="_blank" href="https://www.dataquest.io/">Dataquest.io</a>, as well as many Django tutorials such as <a target="_blank" href="https://docs.djangoproject.com/en/1.8/intro/tutorial01/">Django Polls</a> and <a target="_blank" href="http://tutorial.djangogirls.org/">DjangoGirls</a>. In these courses I have progressed with learning Python and have also become familiar with Django, jQuery, Bootstrap, Git, SQL, AJAX, REST APIs, libraries such as Requests, NumPy, Pandas, scripting using Bash, Bat and PowerShell and with using Windows CMD, Mac OS X and linux terminals.
+                    </p>
