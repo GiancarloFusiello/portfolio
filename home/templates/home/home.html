@@ -25,20 +25,23 @@
 
             // wrapper_id is your content container.
 
-            $('body').addClass("loaded");
+            setTimeout(function (){
 
-            setTimeout(function () {
-                        $('.loader-section').addClass('animated fadeOut');
-                    }, 450
-            );
+                $('body').addClass("loaded");
 
-            setTimeout(function () {
-                        $('.spinner').remove();
-                        $('.loader-section').remove();
-                        $(wrapper_id).removeClass("loading-section-wrapper");
-                        $('body').removeClass("loaded");
-                    }, 1000
-            );
+                setTimeout(function () {
+                            $('.loader-section').addClass('animated fadeOut');
+                        }, 450
+                );
+
+                setTimeout(function () {
+                            $('.spinner').remove();
+                            $('.loader-section').remove();
+                            $(wrapper_id).removeClass("loading-section-wrapper");
+                            $('body').removeClass("loaded");
+                        }, 1000
+                );
+            }, 500);
         }
 
 
@@ -359,6 +362,7 @@
                         </div>
 
                         <p id="carousel-text">In this example, a REST API was created to serve images from the website's database. When you pressed the button, it used AJAX to request some data. Once the request response had been successfully received, a javascript function was used to process that data. The Javascript function modified the DOM and updated the website to show the new content.</p>
+                        <p>If you would like to see the serialised database data that was returned to the AJAX request, you can do so <a href="{% url 'images_api' %}">here</a>.</p>
                         <p>The back button below will update the site again so it looks like it has reverted the changes.</p>
                         <button class="btn btn-danger btn-fill btn-round ajax-btn" type="button">Back</button>
                     </div>
