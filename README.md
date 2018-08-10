@@ -1,2 +1,2 @@
-# My Portfolio Website
-Portfolio website to demonstrate the skills I have learned using Python, Django, Bootstrap, JQuery, HTML, CSS.
+# Simple Django Website
+A simple django website using Python, Django, Bootstrap, JQuery, HTML, CSS.
